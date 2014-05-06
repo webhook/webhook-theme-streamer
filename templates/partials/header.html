@@ -1,0 +1,11 @@
+{% set curUrl = getCurrentUrl() %}
+
+<nav>
+  <div class="container">
+    <span class="mobile-menu-btn fa fa-bars"> Menu</span>
+    <ul>
+      <li class="home {% if getCurrentUrl() == "/" %}active{% endif %}"><a href="/">Home</a></li>
+    </ul>
+  </div>
+</nav>
+
