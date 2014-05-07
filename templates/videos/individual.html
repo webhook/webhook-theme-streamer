@@ -4,13 +4,14 @@
 {% block content %}
   <div class="container ind-video">
     <section>
-        {{ item.name }}
-        {{ item.publish_date|date('F d Y') }}
         <div class="video-wrap">
           <div class="video">
             {{ item.url_of_video.html|safe  }}
           </div>
         </div>
+        <h1>{{ item.name }}</h1>
+        <p>{{ item.url_of_video.description }}</p>
+        {{ item.publish_date|date('F d Y') }}
         {{ item.additional_notes|safe }}
         {% for relation in item.shows %}
           {% set rel = getItem(relation) %}
@@ -32,7 +33,6 @@
                 <a href="{{ url(video) }}">
                   <img src="{{ video.image|imageSize(300) }}">
                   <h4>{{ video.name }}</h4>
-                  <p class="desc">{{ video.url_of_video.description|striptags|truncate(100) }}</p>
                 </a>
             </li>
           {% endfor %}
