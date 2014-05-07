@@ -70,8 +70,9 @@ nav
     max-width: 700px
 
 .boxes
-  +outer-container
-  padding: 0 $gutter
+  display: flex
+  -webkit-flex-flow: row wrap
+
   li
     margin-bottom: $gutter
   li img
@@ -172,7 +173,7 @@ hr
     li
       +span-columns(4)
     li:nth-child(2n)
-      +omega
+      +omega-type
   .podcast-title
     .about
       margin-bottom: $base-line-height

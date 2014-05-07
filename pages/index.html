@@ -21,17 +21,20 @@
 
   {% set videos = get('videos') %}
 
+  <div class="container">
+    <h2>Recent videos</h2>
 
-  <ul class="boxes">
-    {% for item in videos %}
-      <li>
-        {# Episodes and podcasts are slightly different #}
-          <a href="{{ url(item) }}">
-            <img src="{{ item.image|imageSize(300) }}">
-            <h4>{{ item.name }}</h4>
-            <p class="desc">{{ item.url_of_video.description|striptags|truncate(100) }}</p>
-          </a>
-      </li>
-    {% endfor %}
-  </ul>
+    <ul class="boxes">
+      {% for item in videos %}
+        <li>
+          {# Episodes and podcasts are slightly different #}
+            <a href="{{ url(item) }}">
+              <img src="{{ item.image|imageSize(300) }}">
+              <h4>{{ item.name }}</h4>
+              <p class="desc">{{ item.url_of_video.description|striptags|truncate(100) }}</p>
+            </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 {% endblock %}
