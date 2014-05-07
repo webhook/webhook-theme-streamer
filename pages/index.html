@@ -4,37 +4,39 @@
 {% extends "templates/partials/base.html" %}
 
 {% block content %}
-  {% set featured_video = getItem(channel.featured_video) %}
-  <section class="featured-video">
-    <div class="container">
-      <div class="video-info">
-        <h2>{{ featured_video.name }}</h2>
-        <p>{{ featured_video.url_of_video.description }}</p>
-      </div>
-      <div class="video-wrap">
-        <div class="video">
-          {{ featured_video.url_of_video.html|safe }}
+  <div class="home">
+    {% set featured_video = getItem(channel.featured_video) %}
+    <section class="featured-video">
+      <div class="container">
+        <div class="video-info">
+          <h2>{{ channel.name }}</h2>
+          <p>{{ featured_video.url_of_video.description }}</p>
+        </div>
+        <div class="video-wrap">
+          <div class="video">
+            {{ featured_video.url_of_video.html|safe }}
+          </div>
         </div>
       </div>
+    </section>
+
+    {% set videos = get('videos') %}
+
+    <div class="container">
+      <h2>Recent videos</h2>
+
+      <ul class="boxes">
+        {% for item in videos %}
+          <li>
+            {# Episodes and podcasts are slightly different #}
+              <a href="{{ url(item) }}">
+                <img src="{{ item.image|imageSize(300) }}">
+                <h4>{{ item.name }}</h4>
+                <p class="desc">{{ item.url_of_video.description|striptags|truncate(100) }}</p>
+              </a>
+          </li>
+        {% endfor %}
+      </ul>
     </div>
-  </section>
-
-  {% set videos = get('videos') %}
-
-  <div class="container">
-    <h2>Recent videos</h2>
-
-    <ul class="boxes">
-      {% for item in videos %}
-        <li>
-          {# Episodes and podcasts are slightly different #}
-            <a href="{{ url(item) }}">
-              <img src="{{ item.image|imageSize(300) }}">
-              <h4>{{ item.name }}</h4>
-              <p class="desc">{{ item.url_of_video.description|striptags|truncate(100) }}</p>
-            </a>
-        </li>
-      {% endfor %}
-    </ul>
   </div>
 {% endblock %}
