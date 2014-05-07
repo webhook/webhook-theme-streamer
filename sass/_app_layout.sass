@@ -19,25 +19,23 @@ body
   padding: 0 $gutter
 
 nav
-  border-bottom: solid 1px $table-border-color
-  background: $white
+  border-bottom: solid 1px $gray
+  background: $gray-dark
   display: block
   li
     display: inline-block
     &:first-child a
       padding-left: 0
     &.active a, &.active a:visited
-      border-color: $orange
-      color: $orange
+      border-color: $red
+      color: $white
   a
     display: inline-block
     padding: $base-line-height / 2 $base-line-height / 2
     color: $text-color
     font-size: 120%
     font-weight: bold
-    border-bottom: solid 3px transparent
     &:hover
-      border-color: $table-border-color
       color: $text-color
     &:visited
       color: $text-color
@@ -48,82 +46,13 @@ nav
     padding: $base-line-height / 2 0
     display: none
 
-.cast-list
-  margin-top: $gutter
-.single-episode
-  padding-top: $gutter
-  .img
-    +span-columns(4)
-    +omega
-    img
-      width: 100%
-  article
-    +span-columns(8)
-  .controls .listen, .controls .download
-    color: $text-color
-    font-weight: bold
-    cursor: pointer
-    margin-right: $base-line-height / 2
-    &:hover
-      color: $orange
-
-.cast-episodes li
-  list-style: none
-  border-bottom: solid 1px $table-border-color
-  padding: $base-line-height / 2 0
-  margin: 0
-  +clearfix
-  a
-    color: $text-color
-  p
-    font-size: 80%
-    line-height: 1.5
-    margin-bottom: 0
-  h4
-    margin-bottom: $base-line-height / 2
-  img
-    float: left
-    margin-right: $base-line-height / 2
-    width: 75px
-
-.podcast-title
-  padding: $gutter 0
-  margin-bottom: $gutter
-  border-bottom: solid 1px $table-border-color
-  background: rgba(0,0,0,.01)
-  p:last-child
-    margin-bottom: 0
-  h4, ul
-    margin-bottom: $base-line-height / 2
-  .about, .details
-    +span-columns(6)
-  .details
-    +omega
-.links li, .cast li
-  display: inline-block
-  margin-right: 2px
-  margin-left: 0
-  &.guests
-    display: none
-  &.guests.on
-    display: inline-block
-  a
-    background: $text-color
-    color: $text-light
-    border-radius: 2px
-    font-size: 80%
-    padding: $base-line-height / 8 $base-line-height / 4
-    cursor: pointer
-    &:hover
-      color: $white
-
 .blog-list
   .wrap
     max-width: 700px
   ul a
     color: $text-color
   ul a:hover h2
-    color: $orange
+    color: $red
   h3
     font-weight: normal
   ul li
@@ -167,15 +96,16 @@ nav
       line-height: 1.5
     h4
       color: $text-color
-      margin-bottom: 0
+      font-size: 80%
+      margin-bottom: $base-line-height / 2
     &:hover h4
-      color: $orange
+      color: $red
     .date
       margin-bottom: $base-line-height / 2
       color: $text-medium
     .desc
       font-size: 80%
-      color: $text-color
+      color: $text-medium
       line-height: 1.5
       margin-bottom: $base-line-height / 2
   .listen, .download
@@ -186,7 +116,7 @@ nav
     margin-right: 5px
     display: inline-block
     &:hover
-      color: $orange
+      color: $red
 
 hr
   border-color: $table-border-color !important
@@ -203,6 +133,32 @@ hr
   span
     vertical-align: middle
     font-size: 90%
+
+.featured-video
+  background: rgba(0,0,0,.05)
+  border-bottom: solid 1px $table-border-color
+  padding: $gutter 0
+  margin-bottom: $gutter
+  .video-info
+    +span-columns(5)
+
+.video-wrap
+  +span-columns(7)
+  +omega
+  +clearfix
+
+.video
+  position: relative
+  padding-bottom: 56.25%
+  height: 0
+
+.video-wrap
+  iframe
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
 
 +media($desktop)
   .boxes
