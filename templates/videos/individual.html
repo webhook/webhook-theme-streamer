@@ -23,6 +23,8 @@
           {# You can ouput more than just the name. Feel free to output more fields from the CMS. #}
           <a href="{{ url(rel) }}">{{ rel.name }}</a>{% if not loop.last %},{% endif %}
         {% endfor %}
+
+        {% include "templates/partials/disqus.html" %}
       </section>
       <aside>
         {% set videos = get('videos') %}
