@@ -188,6 +188,20 @@ hr
     width: 100%
     margin-bottom: $gutter
 
+.container
+  .show-list
+    border-right: solid 1px $table-border-color
+    +span-columns(2)
+    li
+      font-size: 80%
+    a
+      color: $text-color
+      line-height: 30px
+      display: block
+  .recent-videos
+    +span-columns(10)
+    +omega
+
 +media($desktop)
   .boxes
     li
