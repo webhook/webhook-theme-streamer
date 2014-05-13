@@ -4,23 +4,24 @@
 {% extends "templates/partials/base.html" %}
 
 {% block content %}
-  <div class="cast-list">
+  <div class="container">
+    <div class="cast-list">
 
-    {% set cast = get('cast') %}
+      {% set cast = get('cast') %}
 
-    <ul class="boxes">
-      {% for cast in cast|sort('cast_type', true) %}
-        <li>
-          <a href="{{ url(cast) }}">
-            <img src="{{ cast.image|imageCrop(300) }}">
-            <h4>{{ cast.name }}</h4>
-            <p class="date">{{ cast.cast_type }}</p>
-            <p class="desc">{{ cast.short_bio|striptags|truncate(100) }}</p>
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
+      <ul class="boxes">
+        {% for cast in cast|sort('cast_type', true) %}
+          <li>
+            <a href="{{ url(cast) }}">
+              <img src="{{ cast.image|imageCrop(300) }}">
+              <h4>{{ cast.name }}</h4>
+              <p class="date">{{ cast.cast_type }}</p>
+              <p class="desc">{{ cast.short_bio|striptags|truncate(100) }}</p>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
   </div>
-
 {% endblock %}
 

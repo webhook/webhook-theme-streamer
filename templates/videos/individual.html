@@ -20,12 +20,18 @@
         <h1>{{ item.name }}</h1>
         <p>{{ item.url_of_video.description }}</p>
 
-        <h4>In this video</h4>
-        {% for relation in item.cast %}
-          {% set rel = getItem(relation) %}
-          {# You can ouput more than just the name. Feel free to output more fields from the CMS. #}
-          <a href="{{ url(rel) }}">{{ rel.name }}</a>{% if not loop.last %},{% endif %}
-        {% endfor %}
+        <div class="in-this-video">
+          <h4>In this video</h4>
+          {% for relation in item.cast %}
+            {% set rel = getItem(relation) %}
+            {# You can ouput more than just the name. Feel free to output more fields from the CMS. #}
+            <a href="{{ url(rel) }}">
+              <img src="{{ rel.image|imageCrop(30) }}">
+              {{ rel.name }}
+            </a>
+          {% endfor %}
+        </div>
+        <hr/>
 
         {% include "templates/partials/disqus.html" %}
       </section>
