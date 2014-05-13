@@ -27,8 +27,8 @@ nav
     &:first-child a
       padding-left: 0
     &.active a, &.active a:visited
-      border-color: $red
-      color: $red
+      border-color: $link-color
+      color: $link-color
   a
     display: inline-block
     padding: $base-line-height / 2 $base-line-height / 2
@@ -55,7 +55,7 @@ nav
   ul a
     color: $text-color
   ul a:hover h2
-    color: $red
+    color: $link-color
   h3
     font-weight: normal
   ul li
@@ -103,7 +103,7 @@ nav
       font-size: 80%
       margin-bottom: $base-line-height / 2
     &:hover h4
-      color: $red
+      color: $link-color
     .date
       margin-bottom: $base-line-height / 2
       color: $text-medium
@@ -120,7 +120,7 @@ nav
     margin-right: 5px
     display: inline-block
     &:hover
-      color: $red
+      color: $link-color
 
 hr
   border-color: $table-border-color !important
@@ -211,6 +211,8 @@ hr
       padding: $base-line-height / 2 0
       border-bottom: solid 1px $table-border-color
       display: block
+    a:hover
+      color: $link-color
     h4
       margin: $base-line-height / 2 0
     h4:first-child
@@ -220,6 +222,11 @@ hr
     float: left
     padding-left: $gutter
     border-left: solid 1px $table-border-color
+
+.cast-list
+  +outer-container
+  margin-top: $gutter
+
 +media($desktop)
   .boxes
     li
