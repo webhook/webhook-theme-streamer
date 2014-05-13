@@ -33,7 +33,7 @@
             <li>
               {# Episodes and podcasts are slightly different #}
                 <a href="{{ url(video) }}">
-                  <img src="{{ video.image|imageSize(300) }}">
+                  <img src="{{ video.url_of_video.thumbnail_url|imageSize(300) }}">
                   <h4>{{ video.name }}</h4>
                 </a>
             </li>

@@ -189,19 +189,28 @@ hr
     margin-bottom: $gutter
 
 .container
-  .show-list
-    border-right: solid 1px $table-border-color
-    +span-columns(2)
+  .nav-list
+    width: 20%
+    padding-right: $gutter
+    float: left
+    ul
+      margin-bottom: $gutter
     li
       font-size: 80%
     a
       color: $text-color
-      line-height: 30px
+      padding: $base-line-height / 2 0
+      border-bottom: solid 1px $table-border-color
       display: block
+    h4
+      margin: $base-line-height / 2 0
+    h4:first-child
+      margin-top: 0
   .recent-videos
-    +span-columns(10)
-    +omega
-
+    width: 80%
+    float: left
+    padding-left: $gutter
+    border-left: solid 1px $table-border-color
 +media($desktop)
   .boxes
     li

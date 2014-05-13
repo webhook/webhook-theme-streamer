@@ -25,11 +25,6 @@
         {{ item.publish_date|date('F d Y') }}
       </li>
       <li>
-        <strong>Image: </strong>
-        {# You can get the raw image url by accessing item.image.url #}
-        <img src="{{ item.image|imageSize(200) }}" />
-      </li>
-      <li>
         <strong>Description: </strong>
         {{ item.description|safe }}
       </li>
@@ -52,6 +47,14 @@
       <li>
         <strong>Facebook URL: </strong>
         {{ item.facebook_url }}
+      </li>
+      <li>
+        <strong>videos: </strong>
+        {% for relation in item.videos %}
+          {% set rel = getItem(relation) %}
+          {# You can ouput more than just the name. Feel free to output more fields from the CMS. #}
+          <a href="{{ url(rel) }}">{{ rel.name }}</a>{% if not loop.last %},{% endif %}
+        {% endfor %}
       </li>
   </ul>
 {% endblock %}
