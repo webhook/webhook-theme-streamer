@@ -9,15 +9,18 @@
             {{ item.url_of_video.html|safe  }}
           </div>
         </div>
-        <h1>{{ item.name }}</h1>
-        <p>{{ item.url_of_video.description }}</p>
-        {{ item.publish_date|date('F d Y') }}
-        {{ item.additional_notes|safe }}
         {% for relation in item.shows %}
           {% set rel = getItem(relation) %}
           {# You can ouput more than just the name. Feel free to output more fields from the CMS. #}
-          <a href="{{ url(rel) }}">{{ rel.name }}</a>{% if not loop.last %},{% endif %}
+          <div class="show">
+            <a href="{{ url(rel) }}">{{ rel.name }}</a> {% if loop.last %}&raquo;{% endif %}
+            {{ item.publish_date|date('F d Y') }}
+          </div>
         {% endfor %}
+        <h1>{{ item.name }}</h1>
+        <p>{{ item.url_of_video.description }}</p>
+
+        <h4>In this video</h4>
         {% for relation in item.cast %}
           {% set rel = getItem(relation) %}
           {# You can ouput more than just the name. Feel free to output more fields from the CMS. #}
@@ -29,12 +32,13 @@
       <aside>
         {% set videos = get('videos') %}
         <ul class="other-videos">
-          {% for video in videos %}
+          {% for video in videos|slice(0,10) %}
             <li>
               {# Episodes and podcasts are slightly different #}
                 <a href="{{ url(video) }}">
                   <img src="{{ video.url_of_video.thumbnail_url|imageSize(300) }}">
                   <h4>{{ video.name }}</h4>
+                  <p>{{ video.publish_date|date('F d Y') }}</p>
                 </a>
             </li>
           {% endfor %}
