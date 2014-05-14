@@ -3,7 +3,7 @@
 <nav>
   <div class="container">
     <span class="mobile-menu-btn fa fa-bars"> Menu</span>
-    <ul>
+    <ul class="menu">
       <li class="home {% if getCurrentUrl() == "/" %}active{% endif %}"><a href="/">{{ channel.name }}</a></li>
       <li class="{% if curUrl|startsWith('/shows') %}active{% endif %}"><a href="/shows/">Shows</a></li>
       <li class="{% if curUrl|startsWith('/cast') %}active{% endif %}"><a href="/cast/">Cast</a></li>
