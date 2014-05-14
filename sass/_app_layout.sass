@@ -153,11 +153,12 @@ hr
   margin-bottom: $gutter
   .video-info
     +span-columns(5)
-
-.home .video-wrap
-  +span-columns(7)
-  +omega
-  +clearfix
+    float: left
+  .video-wrap
+    +span-columns(7)
+    +clearfix
+    +omega
+    float: right
 
 .video
   position: relative
@@ -295,6 +296,11 @@ hr
     .about, .details
       +span-columns(8)
       +omega
+  .featured-video
+    .video-info, .video-wrap
+      +span-columns(8)
+    .video-wrap
+      margin-bottom: $gutter
 
 +media($mobile)
   .boxes
@@ -322,4 +328,9 @@ hr
       color: $text-color !important
       padding: $base-line-height / 2 0 !important
       border: none !important
-
+  .container .nav-list
+    display: none
+  .container .recent-videos
+    width: 100%
+    padding-left: 0
+    border: none
