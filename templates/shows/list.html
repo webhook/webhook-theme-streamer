@@ -5,22 +5,30 @@
 
 {% block content %}
 
-  {# Copy this to any page you want shows data on. #}
-  {% set data = get('shows') %}
+  <div class="show-list">
+    <div class="container">
+    {% set shows = get('shows') %}
 
-  {# This is how you set pagination. #}
-  {% set data = paginate(data, 5) %}
+    {% for show in shows %}
 
-  <h1>List of shows</h1>
+    <h2><a href="{{ url(show) }}">{{ show.name }}</a></h2>
 
-  {# Scaffolding only outputs the object.name, but feel to use any of the fields from your CMS form here. #}
-  <ul>
-    {% for id, object in data %}
-      <li><a href="{{ url(object) }}">{{ object.name }}</a></li>
+      <ul class="boxes">
+        {% for video in show.videos|slice(0,4) %}
+          {% set item = getItem(video) %}
+          <li>
+            {# Episodes and podcasts are slightly different #}
+              <a href="{{ url(item) }}">
+                <img src="{{ item.url_of_video.thumbnail_url|imageSize(300) }}">
+                <h4>{{ item.name }}</h4>
+                <p class="desc">{{ item.url_of_video.description|striptags|truncate(100) }}</p>
+              </a>
+          </li>
+        {% endfor %}
+      </ul>
+
     {% endfor %}
-  </ul>
+    </div>
 
-  {# The actual pagination template, feel free to edit or replace the default one. #}
-  {% include "templates/partials/paginator.html" %}
-
+  </div>
 {% endblock %}
