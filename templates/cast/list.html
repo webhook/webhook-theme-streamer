@@ -16,7 +16,7 @@
               <img src="{{ cast.image|imageCrop(300) }}">
               <h4>{{ cast.name }}</h4>
               <p class="date">{{ cast.cast_type }}</p>
-              <p class="desc">{{ cast.short_bio|striptags|truncate(100) }}</p>
+              <p class="desc">{{ cast.wikipedia_url.description|striptags|truncate(100) }}</p>
             </a>
           </li>
         {% endfor %}

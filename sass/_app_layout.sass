@@ -220,6 +220,15 @@ hr
     width: 100%
     margin-bottom: $gutter
 
+.ind-cast
+  margin-top: $gutter
+  section
+    +span-columns(8)
+  aside
+    +span-columns(4)
+    +omega
+    img
+      width: 100%
 .container
   .nav-list
     width: 20%
@@ -250,6 +259,23 @@ hr
   +outer-container
   margin-top: $gutter
 
+.links li
+  display: inline-block
+  margin-right: 2px
+  margin-left: 0
+  &.guests
+    display: none
+  &.guests.on
+    display: inline-block
+  a
+    background: $text-color
+    color: $text-light
+    border-radius: 2px
+    font-size: 80%
+    padding: $base-line-height / 8 $base-line-height / 4
+    cursor: pointer
+    &:hover
+      color: $white
 +media($desktop)
   .boxes
     li

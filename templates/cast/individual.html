@@ -2,48 +2,39 @@
 {# You can find a full list of variables to use on this page in your CMS. #}
 {% extends "templates/partials/base.html" %}
 {% block content %}
-  <h1>{{ item.name }}</h1>
-  <p><a href="/cast/">View a list of all cast</a></p>
-  <ul>
-      <li>
-        <strong>Name: </strong>
-        {{ item.name }}
-      </li>
-      <li>
-        <strong>Create Date: </strong>
-        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
-        {{ item.create_date|date('F d Y') }}
-      </li>
-      <li>
-        <strong>Last Updated: </strong>
-        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
-        {{ item.last_updated|date('F d Y') }}
-      </li>
-      <li>
-        <strong>Publish Date: </strong>
-        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
-        {{ item.publish_date|date('F d Y') }}
-      </li>
-      <li>
-        <strong>Type: </strong>
-        {{ item.type }}
-      </li>
-      <li>
-        <strong>Image: </strong>
-        {# You can get the raw image url by accessing item.image.url #}
-        <img src="{{ item.image|imageSize(200) }}" />
-      </li>
-      <li>
-        <strong>Description: </strong>
-        {{ item.description|safe }}
-      </li>
-      <li>
-        <strong>Twitter: </strong>
-        {{ item.twitter }}
-      </li>
-      <li>
-        <strong>Facebook: </strong>
-        {{ item.facebook }}
-      </li>
-  </ul>
+  <div class="ind-cast">
+    <div class="container">
+      <h1>{{ item.name }}</h1>
+      <section>
+        <p>{{ item.wikipedia_url.description }}</p>
+
+        <h3>Follow</h3>
+        <ul class="links">
+          <li><a href="http://www.twitter.com/{{ item.twitter }}" class="fa fa-twitter"> @{{ item.twitter }}</a></li>
+          <li><a href="{{ item.facebook_url }}" class="fa fa-facebook"> Facebook</a></li>
+        </ul>
+      </section>
+      <aside>
+        <img src="{{ item.image|imageSize(300) }}"/>
+      </aside>
+    </div>
+    <div class="container">
+      <hr/>
+      <h2>Videos</h2>
+      <ul class="boxes">
+        {% for video in item.videos|slice(0,4) %}
+          {% set vid = getItem(video) %}
+          <li>
+            {# Episodes and podcasts are slightly different #}
+              <a href="{{ url(vid) }}">
+                <img src="{{ vid.url_of_video.thumbnail_url|imageSize(300) }}">
+                <h4>{{ vid.name }}</h4>
+                <p class="desc">{{ vid.url_of_video.description|striptags|truncate(100) }}</p>
+              </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+  </div>
 {% endblock %}
