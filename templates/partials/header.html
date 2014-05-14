@@ -5,9 +5,9 @@
     <span class="mobile-menu-btn fa fa-bars"> Menu</span>
     <ul>
       <li class="home {% if getCurrentUrl() == "/" %}active{% endif %}"><a href="/">{{ channel.name }}</a></li>
-      <li class="home {% if getCurrentUrl() == "/shows" %}active{% endif %}"><a href="/shows/">Shows</a></li>
-      <li class="home {% if getCurrentUrl() == "/cast" %}active{% endif %}"><a href="/cast/">Cast</a></li>
-      <li class="home {% if getCurrentUrl() == "/cast" %}active{% endif %}"><a href="/blog/">Blog</a></li>
+      <li class="{% if curUrl|startsWith('/shows') %}active{% endif %}"><a href="/shows/">Shows</a></li>
+      <li class="{% if curUrl|startsWith('/cast') %}active{% endif %}"><a href="/cast/">Cast</a></li>
+      <li class="{% if curUrl|startsWith('/blog') %}active{% endif %}"><a href="/blog/">Blog</a></li>
     </ul>
   </div>
 </nav>
