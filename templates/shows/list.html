@@ -11,7 +11,7 @@
 
     {% for show in shows %}
 
-    <h2><a href="{{ url(show) }}">{{ show.name }}</a></h2>
+    <h2><a href="{{ url(show) }}">{{ show.name }}</a> <span>({{show.videos|size}} videos)</span></h2>
 
       <ul class="boxes">
         {% for video in show.videos|slice(0,4) %}
