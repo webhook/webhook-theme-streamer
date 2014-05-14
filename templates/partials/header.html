@@ -9,6 +9,11 @@
       <li class="{% if curUrl|startsWith('/cast') %}active{% endif %}"><a href="/cast/">Cast</a></li>
       <li class="{% if curUrl|startsWith('/blog') %}active{% endif %}"><a href="/blog/">Blog</a></li>
     </ul>
+    <ul class="social">
+      <li><a href="http://www.twitter.com/{{ channel.twitter }}" class="fa fa-twitter"></a></li>
+      <li><a href="{{ channel.youtube_url }}" class="fa fa-youtube"></a></li>
+      <li><a href="{{ channel.facebook_url }}" class="fa fa-facebook"></a></li>
+    </ul>
   </div>
 </nav>
 
