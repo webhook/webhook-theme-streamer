@@ -2,59 +2,30 @@
 {# You can find a full list of variables to use on this page in your CMS. #}
 {% extends "templates/partials/base.html" %}
 {% block content %}
-  <h1>{{ item.name }}</h1>
-  <p><a href="/shows/">View a list of all shows</a></p>
-  <ul>
-      <li>
-        <strong>Name: </strong>
-        {{ item.name }}
-      </li>
-      <li>
-        <strong>Create Date: </strong>
-        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
-        {{ item.create_date|date('F d Y') }}
-      </li>
-      <li>
-        <strong>Last Updated: </strong>
-        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
-        {{ item.last_updated|date('F d Y') }}
-      </li>
-      <li>
-        <strong>Publish Date: </strong>
-        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
-        {{ item.publish_date|date('F d Y') }}
-      </li>
-      <li>
-        <strong>Description: </strong>
-        {{ item.description|safe }}
-      </li>
-      <li>
-        <strong>Show hosts: </strong>
-        {% for relation in item.show_hosts %}
-          {% set rel = getItem(relation) %}
-          {# You can ouput more than just the name. Feel free to output more fields from the CMS. #}
-          <a href="{{ url(rel) }}">{{ rel.name }}</a>{% if not loop.last %},{% endif %}
+
+  <div class="show-list">
+    <div class="container">
+
+      <h2>{{ item.name }}</h2>
+      {{ item.description|safe }}
+
+
+      <ul class="boxes">
+        {% for video in item.videos %}
+          {% set vid = getItem(video) %}
+          <li>
+            {# Episodes and podcasts are slightly different #}
+              <a href="{{ url(vid) }}">
+                <img src="{{ vid.url_of_video.thumbnail_url|imageSize(300) }}">
+                <h4>{{ vid.name }}</h4>
+                <p class="desc">{{ vid.url_of_video.description|striptags|truncate(100) }}</p>
+              </a>
+          </li>
         {% endfor %}
-      </li>
-      <li>
-        <strong>Preview URL: </strong>
-        {{ item.preview_url }}
-      </li>
-      <li>
-        <strong>Twitter: </strong>
-        {{ item.twitter }}
-      </li>
-      <li>
-        <strong>Facebook URL: </strong>
-        {{ item.facebook_url }}
-      </li>
-      <li>
-        <strong>videos: </strong>
-        {% for relation in item.videos %}
-          {% set rel = getItem(relation) %}
-          {# You can ouput more than just the name. Feel free to output more fields from the CMS. #}
-          <a href="{{ url(rel) }}">{{ rel.name }}</a>{% if not loop.last %},{% endif %}
-        {% endfor %}
-      </li>
-  </ul>
+      </ul>
+
+    </div>
+
+  </div>
+
 {% endblock %}
