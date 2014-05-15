@@ -14,9 +14,10 @@
       {% include "templates/partials/featured_video.html" %}
     {% endif %}
 
-    {# Grab videos, sort them by newest publish date #}
+    {# Grab videos, sort them by newest publish date and limit them to 12. #}
     {% set videos = get('videos') %}
     {% set videos = videos|sort('publish_date', true) %}
+    {% set videos = paginate(videos, 12) %}
 
     {% set cast = get('cast') %}
     {% set cast = cast|sort('name') %}
@@ -50,15 +51,15 @@
         <ul class="boxes">
           {% for item in videos %}
             <li>
-              {# Episodes and podcasts are slightly different #}
-                <a href="{{ url(item) }}">
-                  <img src="{{ item.url_of_video.thumbnail_url|imageSize(300) }}">
-                  <h4>{{ item.name }}</h4>
-                  <p class="desc">{{ item.url_of_video.description|striptags|truncate(100) }}</p>
-                </a>
+              <a href="{{ url(item) }}">
+                <div class="image" style="background-image: url({{ item.url_of_video.thumbnail_url|imageSize(300) }});"></div>
+                <h4>{{ item.name }}</h4>
+                <p class="desc">{{ item.url_of_video.description|striptags|truncate(100) }}</p>
+              </a>
             </li>
           {% endfor %}
         </ul>
+        {% include "templates/partials/paginator.html" %}
       </div>
     </div>
   </div>
