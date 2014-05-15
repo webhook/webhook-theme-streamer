@@ -4,14 +4,20 @@
 {% extends "templates/partials/base.html" %}
 
 {% block content %}
-  <div class="home">
+
+    {% set paginated = getCurPage() %}
     {% set featured_video = getItem(channel.featured_video) %}
     {% set live = get('live') %}
 
-    {% if live.is_it_live == "Yes" %}
-      {% include "templates/partials/live.html" %}
-    {% else %}
-      {% include "templates/partials/featured_video.html" %}
+
+    <div class="{% if paginated != 1 %}home-paginate{% endif %}">
+
+    {% if paginated == 1 %}
+      {% if live.is_it_live == "Yes" %}
+        {% include "templates/partials/live.html" %}
+      {% else %}
+        {% include "templates/partials/featured_video.html" %}
+      {% endif %}
     {% endif %}
 
     {# Grab videos, sort them by newest publish date and limit them to 12. #}
