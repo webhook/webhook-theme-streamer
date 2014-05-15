@@ -1,0 +1,24 @@
+<section class="featured-video">
+  <div class="container">
+    <div class="video-wrap">
+      <div class="video">
+        {{ featured_video.url_of_video.html|safe }}
+      </div>
+    </div>
+    <div class="video-info">
+      <h2>{{ featured_video.name }}</h2>
+      <p>{{ featured_video.url_of_video.description }}</p>
+      <div class="in-this-video">
+        <h4>In this video</h4>
+        {% for relation in featured_video.cast %}
+          {% set rel = getItem(relation) %}
+          {# You can ouput more than just the name. Feel free to output more fields from the CMS. #}
+          <a href="{{ url(rel) }}">
+            <img src="{{ rel.image|imageCrop(30) }}">
+            {{ rel.name }}
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
