@@ -1,0 +1,702 @@
+{
+  "blog": {
+    "controls": [
+      {
+        "controlType": "textfield",
+        "hidden": false,
+        "label": "Name",
+        "locked": true,
+        "name": "name",
+        "required": true,
+        "showInCms": true
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Create Date",
+        "locked": true,
+        "name": "create_date",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Last Updated",
+        "locked": true,
+        "name": "last_updated",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Publish Date",
+        "locked": true,
+        "name": "publish_date",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "textarea",
+        "hidden": false,
+        "label": "Deck",
+        "locked": false,
+        "name": "deck",
+        "required": false,
+        "showInCms": true
+      },
+      {
+        "controlType": "relation",
+        "hidden": false,
+        "label": "Author",
+        "locked": false,
+        "meta": {
+          "contentTypeId": "cast",
+          "reverseName": "blog"
+        },
+        "name": "author",
+        "required": false,
+        "showInCms": true
+      },
+      {
+        "controlType": "wysiwyg",
+        "hidden": false,
+        "label": "Body",
+        "locked": false,
+        "meta": {
+          "image": true,
+          "link": true,
+          "quote": true,
+          "table": true,
+          "video": true
+        },
+        "name": "body",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "textfield",
+        "hidden": true,
+        "label": "Preview URL",
+        "locked": true,
+        "name": "preview_url",
+        "required": true,
+        "showInCms": false
+      }
+    ],
+    "name": "blog",
+    "oneOff": false
+  },
+  "cast": {
+    "controls": [
+      {
+        "controlType": "textfield",
+        "hidden": false,
+        "label": "Name",
+        "locked": true,
+        "name": "name",
+        "required": true,
+        "showInCms": true
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Create Date",
+        "locked": true,
+        "name": "create_date",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Last Updated",
+        "locked": true,
+        "name": "last_updated",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Publish Date",
+        "locked": true,
+        "name": "publish_date",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "radio",
+        "help": "Is this person a regular member of your crew?",
+        "hidden": false,
+        "label": "Type",
+        "locked": false,
+        "meta": {
+          "options": [
+            {
+              "value": "Regular"
+            },
+            {
+              "value": "Guest"
+            }
+          ]
+        },
+        "name": "type",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "image",
+        "hidden": false,
+        "label": "Image",
+        "locked": false,
+        "name": "image",
+        "required": false,
+        "showInCms": true
+      },
+      {
+        "controlType": "wysiwyg",
+        "hidden": false,
+        "label": "Description",
+        "locked": false,
+        "meta": {
+          "image": true,
+          "link": true,
+          "quote": true,
+          "table": true,
+          "video": true
+        },
+        "name": "description",
+        "required": false,
+        "showInCms": true
+      },
+      {
+        "controlType": "textfield",
+        "help": "Username on twitter, minus the @.",
+        "hidden": false,
+        "label": "Twitter",
+        "locked": false,
+        "name": "twitter",
+        "placeholder": "",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "textfield",
+        "help": "URL to facebook page.",
+        "hidden": false,
+        "label": "Facebook",
+        "locked": false,
+        "name": "facebook",
+        "placeholder": "http://facebook.com/somwhere/",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "relation",
+        "hidden": false,
+        "label": "shows",
+        "locked": false,
+        "meta": {
+          "contentTypeId": "shows",
+          "reverseName": "show_hosts"
+        },
+        "name": "shows",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "relation",
+        "hidden": false,
+        "label": "videos",
+        "locked": false,
+        "meta": {
+          "contentTypeId": "videos",
+          "reverseName": "cast"
+        },
+        "name": "videos",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "textfield",
+        "hidden": true,
+        "label": "Preview URL",
+        "locked": true,
+        "name": "preview_url",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "relation",
+        "hidden": false,
+        "label": "blog",
+        "locked": false,
+        "meta": {
+          "contentTypeId": "blog",
+          "reverseName": "author"
+        },
+        "name": "blog",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "embedly",
+        "help": "We'll grab the description from this if you don't want to write one of your own.",
+        "hidden": false,
+        "label": "Wikipedia URL",
+        "locked": false,
+        "name": "wikipedia_url",
+        "required": false,
+        "showInCms": false
+      }
+    ],
+    "name": "cast",
+    "oneOff": false
+  },
+  "channel": {
+    "controls": [
+      {
+        "controlType": "textfield",
+        "hidden": false,
+        "label": "Name",
+        "locked": true,
+        "name": "name",
+        "required": true,
+        "showInCms": true
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Create Date",
+        "locked": true,
+        "name": "create_date",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Last Updated",
+        "locked": true,
+        "name": "last_updated",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Publish Date",
+        "locked": true,
+        "name": "publish_date",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "wysiwyg",
+        "help": "Keep it short. One paragraph only.",
+        "hidden": false,
+        "label": "Description",
+        "locked": false,
+        "meta": {
+          "image": false,
+          "link": true,
+          "quote": false,
+          "table": false,
+          "video": false
+        },
+        "name": "description",
+        "required": false,
+        "showInCms": true
+      },
+      {
+        "controlType": "relation",
+        "help": "Search for a single video to be on the homepage.",
+        "hidden": false,
+        "label": "Featured video",
+        "locked": false,
+        "meta": {
+          "contentTypeId": "videos",
+          "isSingle": true,
+          "reverseName": "channel"
+        },
+        "name": "featured_video",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "textfield",
+        "hidden": true,
+        "label": "Preview URL",
+        "locked": true,
+        "name": "preview_url",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "textfield",
+        "help": "Username on disqus for comments.",
+        "hidden": false,
+        "label": "Disqus username",
+        "locked": false,
+        "name": "disqus_username",
+        "placeholder": "",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "textfield",
+        "help": "Username on Twitter, minus the @ symbol.",
+        "hidden": false,
+        "label": "Twitter",
+        "locked": false,
+        "name": "twitter",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "textfield",
+        "help": "URL to your profile on Facebook.",
+        "hidden": false,
+        "label": "Facebook URL",
+        "locked": false,
+        "name": "facebook_url",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "textfield",
+        "help": "URL of your channel on Youtube.",
+        "hidden": false,
+        "label": "Youtube URL",
+        "locked": false,
+        "name": "youtube_url",
+        "placeholder": "",
+        "required": false,
+        "showInCms": true
+      }
+    ],
+    "name": "channel",
+    "oneOff": true
+  },
+  "live": {
+    "controls": [
+      {
+        "controlType": "textfield",
+        "hidden": false,
+        "label": "Name",
+        "locked": true,
+        "name": "name",
+        "required": true,
+        "showInCms": true
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Create Date",
+        "locked": true,
+        "name": "create_date",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Last Updated",
+        "locked": true,
+        "name": "last_updated",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Publish Date",
+        "locked": true,
+        "name": "publish_date",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "embedly",
+        "help": "Paste the URL of your Twitch or Youtube URL.",
+        "hidden": false,
+        "label": "Live stream URL",
+        "locked": false,
+        "name": "live_stream_url",
+        "required": true,
+        "showInCms": true
+      },
+      {
+        "controlType": "radio",
+        "help": "Flip to yes when your show is about to start, then turn it off after.",
+        "hidden": false,
+        "label": "Is it live?",
+        "locked": false,
+        "meta": {
+          "options": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "False"
+            }
+          ]
+        },
+        "name": "is_it_live",
+        "required": true,
+        "showInCms": true
+      },
+      {
+        "controlType": "wysiwyg",
+        "help": "Optional. Any text you want to go along with your stream. Keep it short.",
+        "hidden": false,
+        "label": "Deck",
+        "locked": false,
+        "meta": {
+          "image": true,
+          "link": true,
+          "quote": true,
+          "table": true,
+          "video": true
+        },
+        "name": "deck",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "textfield",
+        "hidden": true,
+        "label": "Preview URL",
+        "locked": true,
+        "name": "preview_url",
+        "required": true,
+        "showInCms": false
+      }
+    ],
+    "name": "Live",
+    "oneOff": true
+  },
+  "shows": {
+    "controls": [
+      {
+        "controlType": "textfield",
+        "hidden": false,
+        "label": "Name",
+        "locked": true,
+        "name": "name",
+        "required": true,
+        "showInCms": true
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Create Date",
+        "locked": true,
+        "name": "create_date",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Last Updated",
+        "locked": true,
+        "name": "last_updated",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Publish Date",
+        "locked": true,
+        "name": "publish_date",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "wysiwyg",
+        "help": "Keep it short. Only one paragraph.",
+        "hidden": false,
+        "label": "Description",
+        "locked": false,
+        "meta": {
+          "image": false,
+          "link": true,
+          "quote": false,
+          "table": false,
+          "video": false
+        },
+        "name": "description",
+        "placeholder": "",
+        "required": false,
+        "showInCms": true
+      },
+      {
+        "controlType": "relation",
+        "hidden": false,
+        "label": "Show hosts",
+        "locked": false,
+        "meta": {
+          "contentTypeId": "cast",
+          "reverseName": "shows"
+        },
+        "name": "show_hosts",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "textfield",
+        "hidden": true,
+        "label": "Preview URL",
+        "locked": true,
+        "name": "preview_url",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "textfield",
+        "help": "Show's twitter handle. Don't include @.",
+        "hidden": false,
+        "label": "Twitter",
+        "locked": false,
+        "name": "twitter",
+        "placeholder": "",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "textfield",
+        "help": "Link to facebook page.",
+        "hidden": false,
+        "label": "Facebook URL",
+        "locked": false,
+        "name": "facebook_url",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "relation",
+        "hidden": false,
+        "label": "videos",
+        "locked": false,
+        "meta": {
+          "contentTypeId": "videos",
+          "reverseName": "shows"
+        },
+        "name": "videos",
+        "required": false,
+        "showInCms": false
+      }
+    ],
+    "name": "shows",
+    "oneOff": false
+  },
+  "videos": {
+    "controls": [
+      {
+        "controlType": "textfield",
+        "hidden": false,
+        "label": "Name",
+        "locked": true,
+        "name": "name",
+        "required": true,
+        "showInCms": true
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Create Date",
+        "locked": true,
+        "name": "create_date",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Last Updated",
+        "locked": true,
+        "name": "last_updated",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Publish Date",
+        "locked": true,
+        "name": "publish_date",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "embedly",
+        "help": "Can be a youtube URL, vimeo URL or Twitch URL.",
+        "hidden": false,
+        "label": "URL of video",
+        "locked": false,
+        "name": "url_of_video",
+        "placeholder": "",
+        "required": true,
+        "showInCms": true
+      },
+      {
+        "controlType": "relation",
+        "help": "Search for the show this video is a part of.",
+        "hidden": false,
+        "label": "Show(s)",
+        "locked": false,
+        "meta": {
+          "contentTypeId": "shows",
+          "isSingle": false,
+          "reverseName": "videos"
+        },
+        "name": "shows",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "relation",
+        "help": "Who is in this video?",
+        "hidden": false,
+        "label": "Cast",
+        "locked": false,
+        "meta": {
+          "contentTypeId": "cast",
+          "reverseName": "videos"
+        },
+        "name": "cast",
+        "placeholder": "",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "textfield",
+        "hidden": true,
+        "label": "Preview URL",
+        "locked": true,
+        "name": "preview_url",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "relation",
+        "hidden": false,
+        "label": "channel",
+        "locked": false,
+        "meta": {
+          "contentTypeId": "channel",
+          "reverseName": "featured_video"
+        },
+        "name": "channel",
+        "required": false,
+        "showInCms": false
+      }
+    ],
+    "name": "videos",
+    "oneOff": false
+  }
+}
