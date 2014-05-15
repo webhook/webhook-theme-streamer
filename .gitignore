@@ -20,6 +20,7 @@ npm-debug.log
 node_modules
 package.json
 Gruntfile.js
+pages/cms.html
 .sass-cache
 /.build
 /.firebase.conf
