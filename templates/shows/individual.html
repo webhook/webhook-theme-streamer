@@ -16,7 +16,7 @@
           <li>
             {# Episodes and podcasts are slightly different #}
               <a href="{{ url(vid) }}">
-                <img src="{{ vid.url_of_video.thumbnail_url|imageSize(300) }}">
+                <div class="image" style="background-image: url({{ vid.url_of_video.thumbnail_url|imageSize(300) }});"></div>
                 <h4>{{ vid.name }}</h4>
                 <p class="desc">{{ vid.url_of_video.description|striptags|truncate(100) }}</p>
               </a>
