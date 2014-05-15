@@ -42,7 +42,9 @@
             <li>
               {# Episodes and podcasts are slightly different #}
                 <a href="{{ url(video) }}">
-                  <img src="{{ video.url_of_video.thumbnail_url|imageSize(300) }}">
+                  <div class="vid">
+                    <div class="image" style="background-image: url({{ video.url_of_video.thumbnail_url|imageSize(300) }});"></div>
+                  </div>
                   <h4>{{ video.name }}</h4>
                   <p>{{ video.publish_date|date('F d Y') }}</p>
                 </a>
