@@ -14,14 +14,18 @@
       {% include "templates/partials/featured_video.html" %}
     {% endif %}
 
+    {# Grab videos, sort them by newest publish date #}
     {% set videos = get('videos') %}
+    {% set videos = videos|sort('publish_date', true) %}
+
     {% set cast = get('cast') %}
+    {% set cast = cast|sort('name') %}
 
     <div class="container">
       <div class="nav-list">
         <h4>Shows</h4>
         <ul>
-          {% for show in shows %}
+          {% for show in shows|sort('name') %}
             <li>
               <a href="{{ url(show) }}">
                 {{ show.name }}

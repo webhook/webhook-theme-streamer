@@ -9,7 +9,7 @@
     <div class="container">
     {% set shows = get('shows') %}
 
-    {% for show in shows %}
+    {% for show in shows|sort('name') %}
 
     <h2><a href="{{ url(show) }}">{{ show.name }}</a> <span>({{show.videos|size}} videos)</span></h2>
 
