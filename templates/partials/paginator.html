@@ -39,7 +39,7 @@
     <li>...</li>
   {% endif %}
 
-  <li><a href="{{ getPageUrl(maxPage) }}">{{maxPage}}</a></li>
+  <li {% if curPage == maxPage %}class="active"{% endif %}><a href="{{ getPageUrl(maxPage) }}">{{maxPage}}</a></li>
 
   {% if curPage < maxPage %}
   <li><a href="{{ getPageUrl(curPage + 1) }}">&raquo;</a></li>
