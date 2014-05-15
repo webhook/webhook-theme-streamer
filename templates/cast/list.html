@@ -8,6 +8,7 @@
     <div class="cast-list">
 
       {% set cast = get('cast') %}
+      {% set cast = paginate(cast, 12) %}
 
       <ul class="boxes">
         {% for cast in cast|sort('cast_type', true) %}
@@ -21,6 +22,7 @@
           </li>
         {% endfor %}
       </ul>
+      {% include "templates/partials/paginator.html" %}
     </div>
   </div>
 {% endblock %}
