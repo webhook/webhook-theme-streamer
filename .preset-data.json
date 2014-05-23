@@ -319,7 +319,7 @@
         "meta": {
           "contentTypeId": "videos",
           "isSingle": true,
-          "reverseName": "channel"
+          "reverseName": "feature_this_video_on_this_channel"
         },
         "name": "featured_video",
         "required": true,
@@ -440,7 +440,7 @@
               "value": "Yes"
             },
             {
-              "value": "False"
+              "value": "No"
             }
           ]
         },
@@ -684,14 +684,15 @@
       },
       {
         "controlType": "relation",
+        "help": "Search for the channel if you'd like this video featured on it's front door.",
         "hidden": false,
-        "label": "channel",
+        "label": "Feature this video on this channel",
         "locked": false,
         "meta": {
           "contentTypeId": "channel",
           "reverseName": "featured_video"
         },
-        "name": "channel",
+        "name": "feature_this_video_on_this_channel",
         "required": false,
         "showInCms": false
       }
