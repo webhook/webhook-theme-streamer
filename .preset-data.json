@@ -196,19 +196,6 @@
       {
         "controlType": "relation",
         "hidden": false,
-        "label": "shows",
-        "locked": false,
-        "meta": {
-          "contentTypeId": "shows",
-          "reverseName": "show_hosts"
-        },
-        "name": "shows",
-        "required": false,
-        "showInCms": false
-      },
-      {
-        "controlType": "relation",
-        "hidden": false,
         "label": "videos",
         "locked": false,
         "meta": {
@@ -535,46 +522,12 @@
         "showInCms": true
       },
       {
-        "controlType": "relation",
-        "hidden": false,
-        "label": "Show hosts",
-        "locked": false,
-        "meta": {
-          "contentTypeId": "cast",
-          "reverseName": "shows"
-        },
-        "name": "show_hosts",
-        "required": false,
-        "showInCms": false
-      },
-      {
         "controlType": "textfield",
         "hidden": true,
         "label": "Preview URL",
         "locked": true,
         "name": "preview_url",
         "required": true,
-        "showInCms": false
-      },
-      {
-        "controlType": "textfield",
-        "help": "Show's twitter handle. Don't include @.",
-        "hidden": false,
-        "label": "Twitter",
-        "locked": false,
-        "name": "twitter",
-        "placeholder": "",
-        "required": false,
-        "showInCms": false
-      },
-      {
-        "controlType": "textfield",
-        "help": "Link to facebook page.",
-        "hidden": false,
-        "label": "Facebook URL",
-        "locked": false,
-        "name": "facebook_url",
-        "required": false,
         "showInCms": false
       },
       {
