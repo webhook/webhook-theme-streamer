@@ -323,11 +323,11 @@
       },
       {
         "controlType": "textfield",
-        "help": "Username on disqus for comments.",
+        "help": "This is the id for your your site on Disqus. It is different from your username.",
         "hidden": false,
-        "label": "Disqus username",
+        "label": "Disqus id",
         "locked": false,
-        "name": "disqus_username",
+        "name": "disqus_id",
         "placeholder": "",
         "required": false,
         "showInCms": false
